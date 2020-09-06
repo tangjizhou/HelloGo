@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb0b2066-a07d-454a-ba3f-c21c3ae96d99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/base/HelloFile.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/HelloMap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/HelloSlice.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/base/HelloType.go" afterDir="false" />
+    <list default="true" id="bb0b2066-a07d-454a-ba3f-c21c3ae96d99" name="Default Changelist" comment="rename and refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloWorld.go" beforeDir="false" afterPath="$PROJECT_DIR$/HelloWorld.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/GoRuntime.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/HelloGoRuntime.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/Math.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/HelloMath.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/HelloFile.go" beforeDir="false" afterPath="$PROJECT_DIR$/base/HelloFile.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +59,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -126,6 +122,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rename and refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename and refactor" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="640" y="181" key="#GOPATH" timestamp="1599325308178">
       <screen x="0" y="23" width="1680" height="985" />
@@ -139,46 +139,54 @@
       <screen x="0" y="23" width="1680" height="985" />
     </state>
     <state x="554" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.985@0.23.1680.985" timestamp="1599295796011" />
-    <state width="397" height="466" key="DebuggerActiveHint" timestamp="1599304314352">
+    <state x="603" y="226" key="#xdebugger.evaluate" timestamp="1599393678880">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="397" height="466" key="DebuggerActiveHint/0.23.1680.985@0.23.1680.985" timestamp="1599304314352" />
-    <state width="1638" height="266" key="GridCell.Tab.0.bottom" timestamp="1599372200471">
+    <state x="603" y="226" key="#xdebugger.evaluate/0.23.1680.985@0.23.1680.985" timestamp="1599393678880" />
+    <state width="512" height="466" key="DebuggerActiveHint" timestamp="1599402314770">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.bottom/0.23.1680.985@0.23.1680.985" timestamp="1599372200471" />
-    <state width="1638" height="266" key="GridCell.Tab.0.center" timestamp="1599372200470">
+    <state width="512" height="466" key="DebuggerActiveHint/0.23.1680.985@0.23.1680.985" timestamp="1599402314770" />
+    <state width="1638" height="329" key="GridCell.Tab.0.bottom" timestamp="1599405821734">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.center/0.23.1680.985@0.23.1680.985" timestamp="1599372200470" />
-    <state width="1638" height="266" key="GridCell.Tab.0.left" timestamp="1599372200469">
+    <state width="1638" height="329" key="GridCell.Tab.0.bottom/0.23.1680.985@0.23.1680.985" timestamp="1599405821734" />
+    <state width="1638" height="329" key="GridCell.Tab.0.center" timestamp="1599405821733">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.left/0.23.1680.985@0.23.1680.985" timestamp="1599372200469" />
-    <state width="1638" height="266" key="GridCell.Tab.0.right" timestamp="1599372200471">
+    <state width="1638" height="329" key="GridCell.Tab.0.center/0.23.1680.985@0.23.1680.985" timestamp="1599405821733" />
+    <state width="1638" height="329" key="GridCell.Tab.0.left" timestamp="1599405821732">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.right/0.23.1680.985@0.23.1680.985" timestamp="1599372200471" />
-    <state width="1638" height="320" key="GridCell.Tab.1.bottom" timestamp="1599317638702">
+    <state width="1638" height="329" key="GridCell.Tab.0.left/0.23.1680.985@0.23.1680.985" timestamp="1599405821732" />
+    <state width="1638" height="329" key="GridCell.Tab.0.right" timestamp="1599405821733">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="320" key="GridCell.Tab.1.bottom/0.23.1680.985@0.23.1680.985" timestamp="1599317638702" />
-    <state width="1638" height="320" key="GridCell.Tab.1.center" timestamp="1599317638701">
+    <state width="1638" height="329" key="GridCell.Tab.0.right/0.23.1680.985@0.23.1680.985" timestamp="1599405821733" />
+    <state width="1638" height="271" key="GridCell.Tab.1.bottom" timestamp="1599402921523">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="320" key="GridCell.Tab.1.center/0.23.1680.985@0.23.1680.985" timestamp="1599317638701" />
-    <state width="1638" height="320" key="GridCell.Tab.1.left" timestamp="1599317638701">
+    <state width="1638" height="271" key="GridCell.Tab.1.bottom/0.23.1680.985@0.23.1680.985" timestamp="1599402921523" />
+    <state width="1638" height="271" key="GridCell.Tab.1.center" timestamp="1599402921523">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="320" key="GridCell.Tab.1.left/0.23.1680.985@0.23.1680.985" timestamp="1599317638701" />
-    <state width="1638" height="320" key="GridCell.Tab.1.right" timestamp="1599317638701">
+    <state width="1638" height="271" key="GridCell.Tab.1.center/0.23.1680.985@0.23.1680.985" timestamp="1599402921523" />
+    <state width="1638" height="271" key="GridCell.Tab.1.left" timestamp="1599402921523">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
-    <state width="1638" height="320" key="GridCell.Tab.1.right/0.23.1680.985@0.23.1680.985" timestamp="1599317638701" />
+    <state width="1638" height="271" key="GridCell.Tab.1.left/0.23.1680.985@0.23.1680.985" timestamp="1599402921523" />
+    <state width="1638" height="271" key="GridCell.Tab.1.right" timestamp="1599402921523">
+      <screen x="0" y="23" width="1680" height="985" />
+    </state>
+    <state width="1638" height="271" key="GridCell.Tab.1.right/0.23.1680.985@0.23.1680.985" timestamp="1599402921523" />
     <state x="328" y="97" key="SettingsEditor" timestamp="1599374699354">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
     <state x="328" y="97" key="SettingsEditor/0.23.1680.985@0.23.1680.985" timestamp="1599374699354" />
+    <state width="840" height="492" key="XDebugger.FullValuePopup" timestamp="1599381614415">
+      <screen x="0" y="23" width="1680" height="985" />
+    </state>
+    <state width="840" height="492" key="XDebugger.FullValuePopup/0.23.1680.985@0.23.1680.985" timestamp="1599381614415" />
     <state x="628" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599325315354">
       <screen x="0" y="23" width="1680" height="985" />
     </state>
@@ -187,5 +195,20 @@
       <screen x="0" y="23" width="1680" height="985" />
     </state>
     <state x="474" y="160" key="new project wizard/0.23.1680.985@0.23.1680.985" timestamp="1599296177087" />
+    <state x="683" y="289" key="refactoring.ChangeSignatureDialog" timestamp="1599398979957">
+      <screen x="0" y="23" width="1680" height="985" />
+    </state>
+    <state x="683" y="289" key="refactoring.ChangeSignatureDialog/0.23.1680.985@0.23.1680.985" timestamp="1599398979956" />
+    <state x="505" y="240" key="search.everywhere.popup" timestamp="1599400228315">
+      <screen x="0" y="23" width="1680" height="985" />
+    </state>
+    <state x="505" y="240" key="search.everywhere.popup/0.23.1680.985@0.23.1680.985" timestamp="1599400228315" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint suspend="NONE" type="DlvErrorBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
