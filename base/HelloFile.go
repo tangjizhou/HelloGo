@@ -6,7 +6,6 @@ import (
 	"os"
 )
 
-var dirs = make([]os.FileInfo, 10)
 var filesChannel = make(chan os.FileInfo, 100)
 var stopChannel = make(chan bool)
 
@@ -21,34 +20,30 @@ func Encrypt() {
 	_, _ = fmt.Scanf("%s", &path)
 	_, _ = fmt.Printf("扫描文件的路径为：%s\n", path)
 
-	files, err := ioutil.ReadDir(path)
-	if err != nil {
-		panic(err)
-	}
-
-	copy(dirs, files)
-
 	go addToChannel(path, filesChannel)
 	readFromChannel(filesChannel)
-	close(filesChannel)
-	close(stopChannel)
 
 }
 
 var deep = 0
+var fileCount = 0
+var readCount = 0
 
 func addToChannel(path string, filesChannel chan os.FileInfo) {
+	deep++
 	files, _ := ioutil.ReadDir(path)
+	//fmt.Println("当前路径", path, "当前路径文件数", len(files))
 	for _, file := range files {
 		if file.IsDir() {
-			deep++
 			addToChannel(path+"/"+file.Name(), filesChannel)
-		} else {
-			filesChannel <- file
 		}
+		filesChannel <- file
+		fileCount++
 	}
+
 	deep--
 	if deep == 0 {
+		fmt.Println("写入文件：", fileCount)
 		stopChannel <- true
 	}
 }
@@ -58,13 +53,19 @@ func readFromChannel(filesChannel chan os.FileInfo) {
 		select {
 		case file := <-filesChannel:
 			encrypt(file)
+			readCount++
 		case <-stopChannel:
+			for file := range filesChannel {
+				encrypt(file)
+				readCount++
+			}
 			goto end
 		}
 	}
 end:
-	fmt.Println("文件加密完毕")
-
+	fmt.Println("文件加密完毕", readCount)
+	close(filesChannel)
+	close(stopChannel)
 }
 
 func encrypt(file os.FileInfo) {
@@ -72,5 +73,5 @@ func encrypt(file os.FileInfo) {
 }
 
 func logEncryptInfo(filename string, path string) {
-	fmt.Printf("加密文文件名：%s，路径：%s\n", filename, path)
+	fmt.Printf("加密文文件名：%s\n", filename)
 }
